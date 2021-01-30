@@ -25,16 +25,18 @@
  */
 
 namespace app\Controllers;
-
+use Core\BaseController;
 /**
  * Description of HomeController
  *
  * @author Ives Samuel
  */
-class HomeController
+class HomeController extends BaseController
 {
     public function index($request)
     {
-        require_once __DIR__."/../Views/home/index.phtml";
+        $this->data->nome = "Samuel";
+        $this->renderView('home/index');
+       // require_once __DIR__."/../Views/home/index.phtml";
     }
 }
