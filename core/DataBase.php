@@ -34,7 +34,7 @@ use PDOException;
  */
 class DataBase 
 {
-    public function getDataBase($param)
+    public static function getConn()
     {
         $conf = include_once __DIR__."/../app/database.php";
         if($conf['driver'] == 'sqlite')

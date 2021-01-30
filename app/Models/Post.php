@@ -24,23 +24,15 @@
   SOFTWARE.
  */
 
-namespace app\Controllers;
-use Core\BaseController;
-use Core\Container;
+namespace app\Models;
+use \Core\BaseModel;
 /**
- * Description of HomeController
+ * Description of Post
  *
- * @author Ives Samuel
+ * @author nome
  */
-class HomeController extends BaseController
+class Post extends BaseModel
 {
-    public function index($request)
-    {
-        $model = Container::getModel("Post");
-        $posts = $model->getAll();
-        var_dump($posts);
-        $this->data->nome = "Samuel";
-        $this->renderView('home/index');
-       // require_once __DIR__."/../Views/home/index.phtml";
-    }
+    protected $table = "posts";
+    
 }

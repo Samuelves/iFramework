@@ -38,7 +38,12 @@ class Container
         $objContoller = "App\\Controllers\\" . $controller;
         return new $objContoller;
     }
-     public static function pageNotFound()
+    public  static function getModel($model) 
+    {
+        $objModel = "App\\Models\\" . $model;
+        return new $objModel(DataBase::getConn());
+    }
+    public static function pageNotFound()
     {
         if(file_exists(__DIR__ . "/../app/Views/404.phtml")){
             return require_once __DIR__ . "/../app/Views/404.phtml";

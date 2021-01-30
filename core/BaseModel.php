@@ -24,23 +24,29 @@
   SOFTWARE.
  */
 
-namespace app\Controllers;
-use Core\BaseController;
-use Core\Container;
+namespace Core;
+use PDO;
 /**
- * Description of HomeController
+ * Description of BaseModel
  *
  * @author Ives Samuel
  */
-class HomeController extends BaseController
+abstract class BaseModel 
 {
-    public function index($request)
-    {
-        $model = Container::getModel("Post");
-        $posts = $model->getAll();
-        var_dump($posts);
-        $this->data->nome = "Samuel";
-        $this->renderView('home/index');
-       // require_once __DIR__."/../Views/home/index.phtml";
-    }
+  private $pdo;
+  protected $table;
+  
+  public function __construct(PDO $pdo) {
+      $this->pdo = $pdo;
+  }
+  
+  public function getAll()
+  {
+      $query = "SELECT * FROM {$this->table}";
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute();
+      $result = $stmt->fetchAll();
+      $stmt->closeCursor();
+      return $result;
+  }
 }
