@@ -23,3 +23,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+return [
+    /**
+     * Options (mysql, sqlite)
+     */
+    'driver' => 'sqlite',
+    'sqlite'=>[
+        'host' => 'database.db'
+    ],
+    'mysql' => [
+        'host' => 'localhost',
+        'database' => 'local',
+        'user' => 'local',
+        'pass' => 'local',
+        'charset' => 'utf8',
+        'collation' => 'utf8_unicode_ci'
+    ]
+];
