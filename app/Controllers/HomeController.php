@@ -37,10 +37,7 @@ class HomeController extends BaseController
     public function index($request)
     {
         $model = Container::getModel("Post");
-        $posts = $model->getAll();
+        $posts = $model->find(1);
         var_dump($posts);
-        $this->data->nome = "Samuel";
-        $this->renderView('home/index');
-       // require_once __DIR__."/../Views/home/index.phtml";
     }
 }
