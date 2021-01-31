@@ -24,17 +24,13 @@
   SOFTWARE.
  */
 
-namespace app\Controllers;
-use Core\BaseController;
-use Core\Container;
+namespace Core;
+
 /**
- * Description of HomeController
+ * Description of Redirect
  *
- * @author Ives Samuel
+ * @author nome
  */
-class HomeController extends BaseController
-{
-    public function index($request)
-    {
-    }
+class Redirect {
+   
 }
