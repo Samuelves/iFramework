@@ -34,10 +34,10 @@ namespace Core;
 abstract class BaseController
 {
     protected $data;
-    /*protected $auth;
+    protected $auth;
     protected $errors;
     protected $inputs;
-    protected $success;*/
+    protected $success;
     private $viewPath;
     private $layoutPath;
     private $pageTitle = null;
@@ -45,8 +45,8 @@ abstract class BaseController
     public function __construct()
     {
         $this->data = new \stdClass;
-        //$this->auth = new Auth;
-        /*if (Session::get('errors')) {
+        $this->auth = new Auth;
+        if (Session::get('errors')) {
             $this->errors = Session::get('errors');
             Session::destroy('errors');
         }
@@ -57,7 +57,7 @@ abstract class BaseController
         if (Session::get('success')) {
             $this->success = Session::get('success');
             Session::destroy('success');
-        }*/
+        }
     }
 
     protected function renderView($viewPath, $layoutPath = null)

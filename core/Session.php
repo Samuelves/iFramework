@@ -27,17 +27,31 @@
 namespace Core;
 
 /**
- * Description of Redirect
+ * Description of Session
  *
  * @author Ives Samuel
  */
-class Redirect
+class Session
 {
-    public static function route($url, $with = [])
+    public static function set($key, $value)
     {
-        if (count($with) > 0)
-            foreach ($with as $key => $value)
-                Session::set($key, $value);
-        return header("location:$url");
+        $_SESSION[$key] = $value;
+    }
+
+    public static function get($key)
+    {
+        if(isset($_SESSION[$key]))
+            return $_SESSION[$key];
+
+        return false;
+    }
+
+    public static function destroy($keys)
+    {
+        if(is_array($keys))
+            foreach($keys as $key)
+                unset($_SESSION[$key]);
+
+        unset($_SESSION[$keys]);
     }
 }

@@ -25,19 +25,15 @@
  */
 
 namespace Core;
+use Illuminate\Database\Eloquent\Model;
 
+require_once __DIR__ . "/bootstrap_eloquent.php";
 /**
- * Description of Redirect
+ * Description of BaseModelEloquent
  *
  * @author Ives Samuel
  */
-class Redirect
+abstract class BaseModelEloquent extends Model
 {
-    public static function route($url, $with = [])
-    {
-        if (count($with) > 0)
-            foreach ($with as $key => $value)
-                Session::set($key, $value);
-        return header("location:$url");
-    }
+
 }
