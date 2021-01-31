@@ -29,8 +29,9 @@ return [
      * Options (mysql, sqlite)
      */
     'driver' => 'sqlite',
-    'sqlite'=>[
-        'host' => 'database.db'
+
+    'sqlite' => [
+        'database' => 'database.db'
     ],
     'mysql' => [
         'host' => 'localhost',

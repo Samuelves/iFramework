@@ -24,7 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-$route[] = [
-    '/','HomeController@index'
-];
+$route[] = ['/user/create', 'UserController@create'];
+$route[] = ['/user/store', 'UserController@store'];
+
+$route[] = ['/login', 'UserController@login'];
+$route[] = ['/login/auth', 'UserController@auth'];
+$route[] = ['/logout', 'UserController@logout'];
 return $route;

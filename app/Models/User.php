@@ -25,14 +25,41 @@
  */
 
 namespace app\Models;
-use \Core\BaseModel;
+use Core\BaseModelEloquent;
 /**
- * Description of Post
+ * Description of User
  *
- * @author nome
+ * @author Ives Samuel
  */
-class Post extends BaseModel
+class User extends BaseModelEloquent
 {
-    protected $table = "posts";
-    
+    public $table = "users";
+
+    public $timestamps = false;
+
+    protected $fillable = ['name', 'email', 'password'];
+
+    public function rulesCreate()
+    {
+        return [
+            'name' => 'min:4|max:255',
+            'email' => 'email|unique:User:email',
+            'password' => 'min:6|max:16'
+        ];
+    }
+
+    public function rulesUpdate($id)
+    {
+        return [
+            'name' => 'min:4|max:255',
+            'email' => "email|unique:User:email:$id",
+            'password' => 'min:6|max:16'
+        ];
+    }
+
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 }
